@@ -8,5 +8,42 @@ html {
 
 body {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.container-of-all {
+  display: flex;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  max-width: 15vw;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  row-gap: 30px;
+  height: 90vh;
+}
+
+.options > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 5px;
+}
+
+.options > div > label,
+.options > div > input,
+.options > div > button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 

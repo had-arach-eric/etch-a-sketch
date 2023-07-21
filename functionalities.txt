@@ -1,0 +1,10 @@
+Functionalities to be implemented:
+*background colour
+*static colour
+*random colour
+*clear colour
+*clean grid
+*progressive darkening
+*progressive lightening
+*hide lines
+*board sizing options
