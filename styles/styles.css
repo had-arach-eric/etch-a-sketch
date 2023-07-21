@@ -15,10 +15,12 @@ body {
 h1 {
   display: flex;
   justify-content: center;
+  max-height: 10vh;
 }
 
 .container-of-all {
   display: flex;
+  column-gap: 15px;
 }
 
 .options {
@@ -36,7 +38,7 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  row-gap: 5px;
+  /*row-gap: 5px;*/
 }
 
 .options > div > label,
@@ -45,5 +47,39 @@ h1 {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.sixteen {
+  display: grid;
+  grid-template: repeat(16, 1fr) / repeat(16, 1fr);
+}
+
+.thirty-two {
+  display: grid;
+  grid-template: repeat(32, 1fr) / repeat(32, 1fr);
+}
+
+.sixty-four {
+  display: grid;
+  grid-template: repeat(64, 1fr) / repeat(64, 1fr);
+}
+
+.board-container {
+  min-height: 85vh;
+  max-height: 85vh;
+  display: flex;
+  min-width: 80vw;
+  max-width: 80vw;
+  border: 3px solid;
+}
+
+.cells-container {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  display: grid;
+  grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+  border: 3px solid red;
 }
 
