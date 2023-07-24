@@ -1,7 +1,3 @@
-
-
-
-
 function setNewBoard(boardUI, size) {
   boardUI.dataset.size = size.toString();;
   boardUI.innerHTML = null;
@@ -11,20 +7,36 @@ function setNewBoard(boardUI, size) {
     const cellUI = document.createElement("div");
     boardUI.appendChild(cellUI);
   }
+
 }
 
+
+
 function playGame() {
-  const boardUI = document.querySelector(".board-container");
-  const buttonsSizeUI = document.querySelectorAll(".container-buttons-size > button");
+
+/* PSEUDOCODIGO
+  Crear referencia a la cuadrícula
+  Crear cuadricula ante la presion de un botón de tamaño, si ya hay una cuadrícula se resetea
+  Establecer que cuando se mantenga presionado el click sobre el body Y se pase el mouse por algún item se active un listener que pinte de negro el item
+  Establecer que cuando se suelte el click se desactive el listener anterior.
+*/
+
+  const bodyUI = document.querySelector("body");
+  const boardUI = document.querySelector("#board-container");
+  const buttonsSizeUI = document.querySelectorAll(".button-size");
+
   for (let i = 0; i < buttonsSizeUI.length; i++) {
     buttonsSizeUI[i].addEventListener("click", e => {
-      const size = Number(e.target.dataset.size);
-      //console.log("se presiono");
-      setNewBoard(boardUI, size);
-    });
+      setNewBoard(boardUI, Number(buttonsSizeUI[i].dataset.size));
+    })
   }
   
+  //setNewBoard(boardUI, 16);
+
+ 
   
+
+
 }
 
 playGame();
