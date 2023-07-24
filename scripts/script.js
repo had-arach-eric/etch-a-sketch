@@ -2,12 +2,12 @@
 const bodyUI = document.querySelector("body");
 const boardUI = document.querySelector("#board-container");
 const buttonsSizeUI = document.querySelectorAll(".button-size");
-const buttonStaticColorUI = document.querySelector("#button-static-color");
-const inputStaticColorUI = document.querySelector("#button-background-color");
+const inputStaticColorUI = document.querySelector("#button-static-color");
+const inputBackgroundColorUI = document.querySelector("#button-background-color");
 const buttonRainbowUI = document.querySelector("#button-rainbow");
 //const buttonRainbowUI = document.querySelector("#button-rainbow");
 
-let mode = "darknees";
+let mode = "static";
 let clickPrint = false;
 
 
@@ -32,13 +32,19 @@ function addListenersToSizeButtons() {
   }
 }
 
-function handlePrintStatic(e) {
+function handlePressStaticColor() {
   mode = "static";
-  e.target.style.backgroundColor = buttonStaticColorUI.value;
+}
+
+function handlePrintStatic(e) {
+  e.target.style.backgroundColor = inputStaticColorUI.value;
 } 
 
-function handlePrintRainbow(e) {
+function handlePressRainbow() {
   mode = "rainbow";
+}
+
+function handlePrintRainbow(e) {
   e.target.style.backgroundColor = `rgb(${Math.round((Math.random() * 255))} ${Math.round((Math.random() * 255))} ${Math.round((Math.random() * 255))}`;
 }
 
@@ -80,11 +86,12 @@ function playGame() {
 
   boardUI.addEventListener("click", handleClickOnBoard);
   
-  inputStaticColorUI.addEventListener("input", () => {
-    boardUI.style.backgroundColor = inputStaticColorUI.value;
+  inputBackgroundColorUI.addEventListener("input", () => {
+    boardUI.style.backgroundColor = inputBackgroundColorUI.value;
   });
 
-  buttonRainbowUI.addEventListener("click", handlePrintRainbow);
+  inputStaticColorUI.addEventListener("input", handlePressStaticColor);
+  buttonRainbowUI.addEventListener("click", handlePressRainbow);
 
   
 
@@ -93,4 +100,3 @@ function playGame() {
 
 
 playGame();
-
