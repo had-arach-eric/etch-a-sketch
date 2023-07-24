@@ -1,4 +1,4 @@
-
+/*
 
 function handleSizeButtons(e) {
   if (e.target === "button-sixteen") {
@@ -33,3 +33,5 @@ function playGame() {
   const board = document.querySelector("#board");
 
 }
+
+*/
