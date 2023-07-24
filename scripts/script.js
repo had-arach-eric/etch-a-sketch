@@ -1,3 +1,14 @@
+//References to DOM nodes
+const bodyUI = document.querySelector("body");
+const boardUI = document.querySelector("#board-container");
+const buttonsSizeUI = document.querySelectorAll(".button-size");
+const buttonStaticColorUI = document.querySelector("#button-static-color");
+
+let mode = "static";
+let clickPrint = false;
+
+
+
 function setNewBoard(boardUI, size) {
   boardUI.dataset.size = size.toString();;
   boardUI.innerHTML = null;
@@ -10,11 +21,38 @@ function setNewBoard(boardUI, size) {
 
 }
 
-function addListenersToSizeButtons(buttonsSizeUI, boardUI) {
+function addListenersToSizeButtons() {
   for (let i = 0; i < buttonsSizeUI.length; i++) {
     buttonsSizeUI[i].addEventListener("click", e => {
       setNewBoard(boardUI, Number(buttonsSizeUI[i].dataset.size));
     })
+  }
+}
+
+function handlePrintCells(e) {
+  if (mode === "static") {
+    e.target.style.backgroundColor = buttonStaticColorUI.value;
+  }
+  
+  
+} 
+
+function handleClickOnBoard(e) {
+  if (!clickPrint) {
+    clickPrint = true;
+    if (mode === "static") {
+      for (let i = 0; i < boardUI.children.length; i++) {
+        boardUI.children[i].addEventListener("pointerover", handlePrintCells);
+      }
+    }
+  }
+  else {
+    clickPrint = false;
+    if (mode === "static") {
+      for (let i = 0; i < boardUI.children.length; i++) {
+        boardUI.children[i].removeEventListener("pointerover", handlePrintCells);
+      }
+    }
   }
 }
 
@@ -23,47 +61,8 @@ function addListenersToSizeButtons(buttonsSizeUI, boardUI) {
 
 function playGame() {
 
-  let mode = "static";
-  let activeBrushButton; // almaceno el botón que va a estar activo
-  let clickPrint = { active: false };
-  
-
-  //References to DOM nodes
-  const bodyUI = document.querySelector("body");
-  const boardUI = document.querySelector("#board-container");
-  const buttonsSizeUI = document.querySelectorAll(".button-size");
-
-  addListenersToSizeButtons(buttonsSizeUI, boardUI);
-
-  const handlePrintStaticColor = e => e.target.style.backgroundColor = "black";
-
-  const handleClickOnBoard = e => {
-    if (!clickPrint.active) {
-      clickPrint.active = true;
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].addEventListener("pointerover", handlePrintStaticColor);
-      }
-    }
-    else {
-      clickPrint.active = false;
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].removeEventListener("pointerover", handlePrintStaticColor);
-      }
-    }
-  }
-
+  addListenersToSizeButtons();
   boardUI.addEventListener("click", handleClickOnBoard);
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
