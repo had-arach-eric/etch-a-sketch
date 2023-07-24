@@ -89,23 +89,13 @@ h1 {
 .board-container {
   min-height: 85vh;
   max-height: 85vh;
-  display: flex;
   min-width: 80vw;
   max-width: 80vw;
-  border: 3px solid;
-}
-
-.cells-container {
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 100%;
-  max-height: 100%;
   display: grid;
-  grid-template: repeat(10, 1fr) / repeat(10, 1fr);  
   border: 3px solid red;
 }
 
-.cells-container > div {
+.board-container > div {
   border: 1px solid rgb(202, 202, 202);  
 }
 

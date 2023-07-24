@@ -25,16 +25,18 @@
       *hide lines
       *board sizing options
       -->
-      <div class="container-buttons-size-gird">
+      <div class="container-buttons-size">
         <label>Grid size</label>
-        <button class="button-sixteen">16 x 16</button>
-        <button class="button-thirty-two">32 x 32</button>
-        <button class="button-sixty-four64x64">64 x 64</button>
+        <button class="button-sixteen button-size" id="button-sixteen" data-size="16">16 x 16</button>
+        <button class="button-thirty-two button-size" id="button-thirty-two" data-size="32">32 x 32</button>
+        <button class="button-sixty-four button-size" id="button-sixty-four" data-size="64">64 x 64</button>
       </div>
+
       <div class="container-background">
         <label for="button-background-color">Background</label>
         <input type="color" id="button-background-color" class="button-background-color">
       </div>
+
       <div class="container-brush">
         <label for="button-static-color">Brush</label>
         <input type="color" id="button-static-color" class="button-static-color">
@@ -42,18 +44,23 @@
         <button id="button-progressive-darkening" class="button-progressive-darkening">Progressive darkening</button>
         <button id="button-progressive-lightening" class="button-progressive-lightening">Progressive lightening</button>
       </div>
+
       <div class="container-clear-grid" id="container-clear-grid">
         <button id="button-clear-grid" class="button-clear-grid">Clear grid</button>
       </div>
+
       <div class="container-hide-lines" id="container-hide-lines">
         <button id="button-hide-lines" class="button-hide-lines">Hide lines</button>
       </div>
+      
     </div>
 
-    <div class="board-container" id="board-container">
-      <div class="cells-container" id="cells-container">
-        <div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div>
-      <div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div>
+    <div class="board-container" id="board-container" data-size="0">
+        
+        <!-- 
+          <div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div>
+      <div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div> 
+    -->
       </div>
       
     </div>
