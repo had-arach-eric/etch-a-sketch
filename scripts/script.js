@@ -1,20 +1,22 @@
-//References to DOM nodes
-
+//-----------References to DOM nodes-----------
 const bodyUI = document.querySelector("body");
 const boardUI = document.querySelector("#board-container");
 const buttonsSizeUI = document.querySelectorAll(".button-size");
 const inputStaticColorUI = document.querySelector("#button-static-color");
 const inputBackgroundColorUI = document.querySelector("#button-background-color");
 const buttonRainbowUI = document.querySelector("#button-rainbow");
-const buttonEraser = document.querySelector("#button-eraser");
-const buttonClear = document.querySelector("#button-clear-grid");
+const buttonEraserUI = document.querySelector("#button-eraser");
+const buttonClearUI = document.querySelector("#button-clear-grid");
+const buttonHideLines = document.querySelector("#button-hide-lines");
 
+//-----------Global variables-----------
 let currentSize = 0;
 let mode = "static";
 let clickPrint = false;
+let visibleLines = true;
 
 
-
+//-----------Functions-----------
 function setNewBoard(boardUI, size) {
   currentSize = size;
   boardUI.dataset.size = size.toString();;
@@ -64,7 +66,25 @@ function handlePressClear() {
   setNewBoard(boardUI, currentSize);
 }
 
-
+function handlePressHideLine() {
+  if (currentSize !== 0) {
+    if (visibleLines) {
+      visibleLines = false;
+      buttonHideLines.textContent = "Show lines";
+      for (let i = 0; i < boardUI.children.length; i++) {
+        boardUI.children[i].style.border = "0px";
+      }
+    }
+    else {
+      visibleLines = true;
+      buttonHideLines.textContent = "Hide lines";
+      for (let i = 0; i < boardUI.children.length; i++) {
+        boardUI.children[i].style.border = "1px solid rgb(202, 202, 202)";
+      }
+    }
+    
+  }
+}
 
 function handleClickOnBoard(e) {
   if (!clickPrint) {
@@ -74,12 +94,12 @@ function handleClickOnBoard(e) {
         boardUI.children[i].addEventListener("pointerover", handlePrintStatic);
       }
     }
-    if (mode === "rainbow") {
+    else if (mode === "rainbow") {
       for (let i = 0; i < boardUI.children.length; i++) {
         boardUI.children[i].addEventListener("pointerover", handlePrintRainbow);
       }
     }
-    if (mode === "eraser") {
+    else if (mode === "eraser") {
       for (let i = 0; i < boardUI.children.length; i++) {
         boardUI.children[i].addEventListener("pointerover", handlePrintEraser);
       }
@@ -92,22 +112,18 @@ function handleClickOnBoard(e) {
         boardUI.children[i].removeEventListener("pointerover", handlePrintStatic);
       }
     }
-    if (mode === "rainbow") {
+    else if (mode === "rainbow") {
       for (let i = 0; i < boardUI.children.length; i++) {
         boardUI.children[i].removeEventListener("pointerover", handlePrintRainbow);
       }
     }
-    if (mode === "eraser") {
+    else if (mode === "eraser") {
       for (let i = 0; i < boardUI.children.length; i++) {
         boardUI.children[i].removeEventListener("pointerover", handlePrintEraser);
       }
     }
-    
   }
 }
-
-
-
 
 function playGame() {
 
@@ -124,18 +140,12 @@ function playGame() {
 
   buttonRainbowUI.addEventListener("click", handlePressRainbow);
 
-  buttonEraser.addEventListener("click", handlePressEraser);
+  buttonEraserUI.addEventListener("click", handlePressEraser);
 
-  buttonClear.addEventListener("click", handlePressClear);
+  buttonClearUI.addEventListener("click", handlePressClear);
 
-
-
-  
-
-  
-
+  buttonHideLines.addEventListener("click", handlePressHideLine);
 }
-
 
 
 playGame();
