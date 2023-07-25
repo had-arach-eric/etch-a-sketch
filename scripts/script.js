@@ -1,7 +1,4 @@
 //-----------References to DOM nodes-----------
-const referencesToDOMNodes = {
-  
-}
 const bodyUI = document.querySelector("body");
 const boardUI = document.querySelector("#board-container");
 const buttonsSizeUI = document.querySelectorAll(".button-size");
@@ -30,6 +27,7 @@ function setNewBoard(boardUI, size) {
     const cellUI = document.createElement("div");
     boardUI.appendChild(cellUI);
   }
+  showLines();
 
 }
 
@@ -67,25 +65,33 @@ function handlePrintEraser(e) {
 
 function handlePressClear() {
   setNewBoard(boardUI, currentSize);
+  showLines();
 }
 
-function handlePressHideLine() {
+function showLines() {
+  visibleLines = true;
+  buttonHideLines.textContent = "Hide lines";
+  for (let i = 0; i < boardUI.children.length; i++) {
+    boardUI.children[i].style.border = "1px solid rgb(202, 202, 202)";
+  }
+}
+
+function hideLines() {
+  visibleLines = false;
+  buttonHideLines.textContent = "Show lines";
+  for (let i = 0; i < boardUI.children.length; i++) {
+    boardUI.children[i].style.border = "0px";
+  }
+}
+
+function handlePressLines() {
   if (currentSize !== 0) {
     if (visibleLines) {
-      visibleLines = false;
-      buttonHideLines.textContent = "Show lines";
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].style.border = "0px";
-      }
+      hideLines();
     }
     else {
-      visibleLines = true;
-      buttonHideLines.textContent = "Hide lines";
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].style.border = "1px solid rgb(202, 202, 202)";
-      }
+      showLines();
     }
-    
   }
 }
 
@@ -147,7 +153,7 @@ function playGame() {
 
   buttonClearUI.addEventListener("click", handlePressClear);
 
-  buttonHideLines.addEventListener("click", handlePressHideLine);
+  buttonHideLines.addEventListener("click", handlePressLines);
 }
 
 
