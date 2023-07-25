@@ -1,8 +1,0 @@
-Functionalities to be implemented:
-*background colour
-*static colour
-*random colour
-*clear colour
-*clean grid
-*hide lines
-*board sizing options
