@@ -95,41 +95,65 @@ function handlePressLines() {
   }
 }
 
+function setStaticMode() {
+  for (let i = 0; i < boardUI.children.length; i++) {
+    boardUI.children[i].addEventListener("pointerover", handlePrintStatic);
+  }
+}
+
+function unsetStaticMode() {
+  for (let i = 0; i < boardUI.children.length; i++) {
+    boardUI.children[i].removeEventListener("pointerover", handlePrintStatic);
+  }
+}
+
+function setRainbowMode() {
+  for (let i = 0; i < boardUI.children.length; i++) {
+    boardUI.children[i].addEventListener("pointerover", handlePrintRainbow);
+  }
+}
+
+function unsetRainbowMode() {
+  for (let i = 0; i < boardUI.children.length; i++) {
+    boardUI.children[i].removeEventListener("pointerover", handlePrintRainbow);
+  }
+}
+
+function setEraserMode() {
+  for (let i = 0; i < boardUI.children.length; i++) {
+    boardUI.children[i].addEventListener("pointerover", handlePrintEraser);
+  }
+}
+
+function unsetEraserMode() {
+  for (let i = 0; i < boardUI.children.length; i++) {
+    boardUI.children[i].removeEventListener("pointerover", handlePrintEraser);
+  }
+}
+
 function handleClickOnBoard(e) {
   if (!clickPrint) {
     clickPrint = true;
     if (mode === "static") {
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].addEventListener("pointerover", handlePrintStatic);
-      }
+      setStaticMode();
     }
     else if (mode === "rainbow") {
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].addEventListener("pointerover", handlePrintRainbow);
-      }
+      setRainbowMode();
     }
     else if (mode === "eraser") {
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].addEventListener("pointerover", handlePrintEraser);
-      }
+      setEraserMode();
     }
   }
   else {
     clickPrint = false;
     if (mode === "static") {
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].removeEventListener("pointerover", handlePrintStatic);
-      }
+      unsetStaticMode();
     }
     else if (mode === "rainbow") {
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].removeEventListener("pointerover", handlePrintRainbow);
-      }
+      unsetRainbowMode();
     }
     else if (mode === "eraser") {
-      for (let i = 0; i < boardUI.children.length; i++) {
-        boardUI.children[i].removeEventListener("pointerover", handlePrintEraser);
-      }
+      unsetEraserMode();
     }
   }
 }
