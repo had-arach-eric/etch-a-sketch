@@ -92,7 +92,7 @@ h1 {
   min-width: 80vw;
   max-width: 80vw;
   display: grid;
-  border: 3px solid red;
+  border: 3px solid rgb(185, 185, 185);
 }
 
 .board-container > div {

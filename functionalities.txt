@@ -4,7 +4,5 @@ Functionalities to be implemented:
 *random colour
 *clear colour
 *clean grid
-*progressive darkening
-*progressive lightening
 *hide lines
 *board sizing options

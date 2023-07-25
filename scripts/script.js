@@ -1,4 +1,7 @@
 //-----------References to DOM nodes-----------
+const referencesToDOMNodes = {
+  
+}
 const bodyUI = document.querySelector("body");
 const boardUI = document.querySelector("#board-container");
 const buttonsSizeUI = document.querySelectorAll(".button-size");
